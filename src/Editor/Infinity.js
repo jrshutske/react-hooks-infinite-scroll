@@ -10,8 +10,9 @@ export default function InfiniteList (props) {
   const [restart, setRestart] = useState(false);
   const [take, setTake] = useState(10);
 
-  const getData = useCallback(()=>{
-    fetchdata(type, take, skip)
+  const getData = useCallback((newskip, newtake)=>{
+    console.log(newskip, newtake)
+    fetchdata(type, newtake?10:take, newskip?0:skip)
       .then((data) => {
         setRestart(false)
         setListItems((prevState) => ([...prevState, ...data]))
@@ -29,7 +30,7 @@ export default function InfiniteList (props) {
       setSkip(0)
       setTake(10)
       setListItems([])
-      getData()
+      getData(true, true)
   }, [type])
 
   const handleScroll = (event) => {
