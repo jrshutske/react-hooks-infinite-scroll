@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import InfiniteList from './InfiniteList';
+import React from 'react'
+import EditorDialog from './Editor/EditorDialog'
+import BasicComponent from './BasicComponent'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-12 justify-content-center my-5">
-            <InfiniteList />
-          </div>
+export default function App () {
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-12 justify-content-center my-5">
+          <BasicComponent />
         </div>
       </div>
-    );
-  }
+    </div>
+  )
 }
-
-export default App;
